@@ -3,6 +3,11 @@ const mongoose = require("mongoose");
 
 // Mongoose Schema for user
 const UserSchema = new mongoose.Schema({
+  aadhaar: {
+    type: String,
+    required: true,
+    unique: true,
+  },
   name: {
     firstName: {
       type: String,
@@ -13,12 +18,13 @@ const UserSchema = new mongoose.Schema({
       required: true,
     },
   },
-  aadhaar: {
+  password: {
     type: String,
     required: true,
   },
-  password: {
+  gender: {
     type: String,
+    enum: ["male", "female", "others"],
     required: true,
   },
   phone: {

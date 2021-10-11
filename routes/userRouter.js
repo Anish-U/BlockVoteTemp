@@ -40,27 +40,30 @@ router.post("/login", (req, res, next) => {
 
 // Dashboard Page
 router.get("/dashboard", ensureAuthentication, (req, res) => {
-  res.render("user/home", { title: "Dashboard" });
+  res.render("user/home", { title: "Dashboard", user: req.user });
 });
 
 // Phone Registration Page
 router.get("/register-phone", ensureAuthentication, (req, res) => {
-  res.render("user/registerPhone", { title: "Register Phone" });
+  res.render("user/registerPhone", { title: "Register Phone", user: req.user });
 });
 
 // Ethereum Acc Registration Page
 router.get("/register-ethereum", ensureAuthentication, (req, res) => {
-  res.render("user/registerEthereum", { title: "Register Ethereum" });
+  res.render("user/registerEthereum", {
+    title: "Register Ethereum",
+    user: req.user,
+  });
 });
 
 // Voting Page
 router.get("/vote", ensureAuthentication, (req, res) => {
-  res.render("user/vote", { title: "Vote" });
+  res.render("user/vote", { title: "Vote", user: req.user });
 });
 
 // Results Page
 router.get("/results", ensureAuthentication, (req, res) => {
-  res.render("user/results", { title: "Results" });
+  res.render("user/results", { title: "Results", user: req.user });
 });
 
 // Logout
